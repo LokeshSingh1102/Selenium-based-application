@@ -97,6 +97,8 @@ search_toggle = soup.find(id='__next')
 
 # to save in a file
 text = soup.find('p', class_='mt-2').get_text(strip=True, separator=' ')
+print(soup.find('p').attrs)
+
 print(text)
 with open('file.txt', 'w') as file:
     file.write(text)
