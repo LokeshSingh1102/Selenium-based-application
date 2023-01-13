@@ -51,22 +51,27 @@ title = soup.title
 # print(soup.get_text())
 # OR
 # print(soup.find('p').string)
-# OR 
+# OR
 # print(soup.p.string)
 
 # # Get all the anchor tag from the page.
-# anchors = soup.find_all('a')
-# LinkText = 'https://www.codewithharry.com'
-# storeLink = set() # store the href of anchor tag
-# for link in anchors:
-#     if (link.get('href') != '#'):
-#         LinkText = LinkText + link.get('href')
-#         storeLink.add(LinkText)
-#         print(LinkText)
-#         print("\n")
+anchors = soup.find_all('a')
+storeLink = set()  # store the href of anchor tag
+for link in anchors:
+    LinkText = 'https://www.codewithharry.com'
+    if (link.get('href') != '/'):
+        print(link.get('href'))
+        LinkText = LinkText + link.get('href')
+        storeLink.add(LinkText)
+        print(LinkText)
+        # print("\n")
 # print(anchors)
+with open('link.txt','w') as file:
+    for link in storeLink:
+        file.write(link+'\n') 
+        
 
-# .content and .children 
+# .content and .children
 # print(soup.find(id='search-toggle'))
 search_toggle = soup.find(id='__next')
 # for items in search_toggle.contents:
@@ -74,6 +79,24 @@ search_toggle = soup.find(id='__next')
 #     print("\n ")
 
 # to get the innerText
-for items in search_toggle.stripped_strings:
-    print(items)
+# for items in search_toggle.stripped_strings:ṇ
+#     print(items)
 
+# print(search_toggle.parent)
+# print(search_toggle.parents) # THIS IS GIVING A GENERATOR
+
+# it shows the Traversal meaning shows all parent of the element how it will traverse to the top
+# for items in search_toggle.parents:
+#     print(items.name)
+
+# print(search_toggle.next_sibling)
+# print(search_toggle.previous_sibling)
+
+# selectors
+# print(soup.select('.sticky')) # it returns a list
+
+# to save in a file
+text = soup.find('p', class_='mt-2').get_text(strip=True, separator=' ')
+print(text)
+with open('file.txt', 'w') as file:
+    file.write(text)
