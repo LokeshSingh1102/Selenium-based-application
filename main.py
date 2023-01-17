@@ -66,10 +66,10 @@ for link in anchors:
         print(LinkText)
         # print("\n")
 # print(anchors)
-with open('link.txt','w') as file:
+with open('link.txt', 'w') as file:
     for link in storeLink:
-        file.write(link+'\n') 
-        
+        file.write(link+'\n')
+
 
 # .content and .children
 # print(soup.find(id='search-toggle'))
@@ -102,3 +102,6 @@ print(soup.find('p').attrs)
 print(text)
 with open('file.txt', 'w') as file:
     file.write(text)
+
+para = BeautifulSoup('<p class="myP koko">rhrhfirebf</p>', 'html.parser')
+print(para.string)
