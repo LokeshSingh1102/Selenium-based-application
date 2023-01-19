@@ -72,12 +72,12 @@ def kunalNotification():
         print("no new video")
 
 if __name__ == "__main__":
-    allChannelsUrl = launchBrowser()
-    # print(allChannelsUrl)
-    allChannelsDetails =  urlDetail(allChannelsUrl)
-    print(json.dumps(allChannelsDetails,indent=4))
+    # allChannelsUrl = launchBrowser()
+    # # print(allChannelsUrl)
+    # allChannelsDetails =  urlDetail(allChannelsUrl)
+    # print(json.dumps(allChannelsDetails,indent=4))
 
-    # noti = kunalNotification()
+    noti = kunalNotification()
 
 
 #metadata-line > span:nth-child(4)
